@@ -1,0 +1,24 @@
+{
+  "name": "react_shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "server": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VadymKirdan/react_shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VadymKirdan/react_shop/issues"
+  },
+  "homepage": "https://github.com/VadymKirdan/react_shop#readme",
+  "devDependencies": {
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
+  }
+}
