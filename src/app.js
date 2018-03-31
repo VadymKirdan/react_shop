@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Products from '../src/components/Products';
+import ShoppingApp from '../src/components/ShoppingApp';
 
-ReactDOM.render(<Products />, document.getElementById('app'));
+ReactDOM.render(<ShoppingApp />, document.getElementById('app'));
