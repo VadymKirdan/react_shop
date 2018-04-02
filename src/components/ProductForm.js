@@ -4,15 +4,16 @@ class ProductForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: 'ss',
+            type: '',
             name: '',
             model: '',
             price: 0
         }
-        this.onTypeChange = this.onTypeChange.bind(this);
-        this.onNameChange = this.onNameChange.bind(this);
+        this.onTypeChange  = this.onTypeChange.bind(this);
+        this.onNameChange  = this.onNameChange.bind(this);
         this.onModelChange = this.onModelChange.bind(this);
         this.onPriceChange = this.onPriceChange.bind(this);
+        this.onFormSubmit  = this.onFormSubmit.bind(this);
     }
     onTypeChange(e) {
         const type = e.target.value;
@@ -30,15 +31,23 @@ class ProductForm extends React.Component {
         const price = e.target.value;
         this.setState(()=>({price: price}));
     }
+    onFormSubmit(e) {
+        e.preventDefault();
+        this.props.handleAddProduct({
+            type: this.state.type,
+            name: this.state.name,
+            model: this.state.model,
+            price: this.state.price
+        });
+    }
     render() {
         return (
             <div>
-                <br />
-                <form>
-                    Type:  <input type="text" onChange={this.onTypeChange} value={this.state.type}/><br />
-                    Name:  <input type="text" onChange={this.onNameChange} value={this.state.name}/><br />
-                    Model: <input type="text" onChange={this.onModelChange} value={this.state.model}/><br />
-                    Price: <input type="text" onChange={this.onPriceChange} value={this.state.price}/><br />
+                <form onSubmit={this.onFormSubmit}>
+                    Type:  <input type="text" onChange={this.onTypeChange}  value={this.state.type}  /><br />
+                    Name:  <input type="text" onChange={this.onNameChange}  value={this.state.name}  /><br />
+                    Model: <input type="text" onChange={this.onModelChange} value={this.state.model} /><br />
+                    Price: <input type="text" onChange={this.onPriceChange} value={this.state.price} /><br />
                     <button>Add Product</button>
                 </form>
             </div>
