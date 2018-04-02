@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Products from './Products';
+import ProductForm from './ProductForm';
 
 class ShoppingApp extends React.Component {
     render() {
@@ -8,6 +9,7 @@ class ShoppingApp extends React.Component {
             <div>
                 <Header />
                 <Products />
+                <ProductForm />
             </div>
         )
     }

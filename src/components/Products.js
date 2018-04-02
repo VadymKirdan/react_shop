@@ -27,12 +27,24 @@ class Products extends React.Component {
                 }
             ]
         }
+        this.handleProductRemove = this.handleProductRemove.bind(this);
+        this.handleRemoveAllProducts = this.handleRemoveAllProducts.bind(this);
+    }
+    handleProductRemove(id) {
+        let products = this.state.products.filter((product) => {
+            return product.id !== id;
+        });
+        this.setState( () => ({ products: products }));
+    }
+    handleRemoveAllProducts() {
+        this.setState( () => ({ products: [] }));
     }
     render() {
         return (
             <div>
+                <button onClick={(e) => this.handleRemoveAllProducts()}>Remove All</button>
                 {
-                    this.state.products.map((product) => <Product key={product.id} product={product}/>)
+                    this.state.products.map((product) => <Product key={product.id} product={product} handleProductRemove={this.handleProductRemove} />)
                 }
             </div>
         );
