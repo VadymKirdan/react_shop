@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductForm from './ProductForm';
+import { Link } from 'react-router-dom';
 
 class Product extends React.Component {
     render() {
@@ -17,6 +18,7 @@ class Product extends React.Component {
                     </ol>}
                     {!this.props.productToEdit && <button onClick={(e) => this.props.handleProductRemove(this.props.product.id)}>Remove</button>}
                     {!this.props.productToEdit && <button onClick={(e) => this.props.handleProductEdit(this.props.product)}>Edit</button>}
+                    <Link to={`/edit/${this.props.product.id}`}><h3>Edit Link</h3></Link>
             </div>
         )
     }

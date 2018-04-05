@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import ShoppingApp from '../components/ShoppingApp';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
+import AddProductPage from '../components/AddProductPage';
+import EditProductPage from '../components/EditProductPage';
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -12,6 +14,8 @@ const AppRouter = () => (
             <Switch>
                 <Route path="/" component={ShoppingApp} exact={true}/>
                 <Route path="/help" component={HelpPage}/>
+                <Route path="/create" component={AddProductPage}/>
+                <Route path="/edit/:id" component={EditProductPage}/>
                 <Route component={NotFoundPage}/>
             </Switch>
         </div>
