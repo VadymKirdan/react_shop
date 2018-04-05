@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ShoppingApp from '../src/components/ShoppingApp';
+import AppRouter from './routers/AppRouter';
 
-ReactDOM.render(<ShoppingApp />, document.getElementById('app'));
+ReactDOM.render(<AppRouter />, document.getElementById('app'));

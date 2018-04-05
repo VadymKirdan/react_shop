@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './Header';
 import Products from './Products';
 import ProductForm from './ProductForm';
 
@@ -77,7 +76,6 @@ class ShoppingApp extends React.Component {
     render() {
         return (
             <div>
-                <Header />
                 <Products products={this.state.products} handleProductEdit={this.handleProductEdit} handleUpdateProduct={this.handleUpdateProduct} productToEdit={this.state.productToEdit} handleProductRemove={this.handleProductRemove} handleRemoveAllProducts={this.handleRemoveAllProducts} />
                 <ProductForm handleAddProduct={this.handleAddProduct}/>
             </div>
