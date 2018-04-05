@@ -4,10 +4,10 @@ class ProductForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: '',
-            name: '',
-            model: '',
-            price: 0
+            type:  this.props.productToEdit ? this.props.productToEdit.type : '',
+            name:  this.props.productToEdit ? this.props.productToEdit.name : '',
+            model: this.props.productToEdit ? this.props.productToEdit.model : '',
+            price: this.props.productToEdit ? this.props.productToEdit.price : 0
         }
         this.onTypeChange  = this.onTypeChange.bind(this);
         this.onNameChange  = this.onNameChange.bind(this);
@@ -33,12 +33,17 @@ class ProductForm extends React.Component {
     }
     onFormSubmit(e) {
         e.preventDefault();
-        this.props.handleAddProduct({
-            type: this.state.type,
-            name: this.state.name,
+        const updateObj = {
+            type:  this.state.type,
+            name:  this.state.name,
             model: this.state.model,
             price: this.state.price
-        });
+        }
+        if (this.props.productToEdit) {
+            this.props.handleUpdateProduct(updateObj);
+        } else {
+            this.props.handleAddProduct(updateObj);
+        }
     }
     render() {
         return (
@@ -48,7 +53,7 @@ class ProductForm extends React.Component {
                     Name:  <input type="text" onChange={this.onNameChange}  value={this.state.name}  /><br />
                     Model: <input type="text" onChange={this.onModelChange} value={this.state.model} /><br />
                     Price: <input type="text" onChange={this.onPriceChange} value={this.state.price} /><br />
-                    <button>Add Product</button>
+                    <button>{this.props.productToEdit ? "Update Product" : "Add Product"}</button>
                 </form>
             </div>
         )

@@ -7,7 +7,8 @@ class Products extends React.Component {
             <div>
                 <button onClick={(e) => this.props.handleRemoveAllProducts()}>Remove All</button>
                 {
-                    this.props.products.map((product) => <Product key={product.id} product={product} handleProductRemove={this.props.handleProductRemove} />)
+                    this.props.products.map((product) => <Product key={product.id} product={product} handleUpdateProduct={this.props.handleUpdateProduct}
+                    productToEdit={this.props.productToEdit} handleProductEdit={this.props.handleProductEdit} handleProductRemove={this.props.handleProductRemove} />)
                 }
             </div>
         );
