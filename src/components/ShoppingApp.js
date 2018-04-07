@@ -6,28 +6,7 @@ class ShoppingApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            productToEdit: undefined,
-            products: [
-                {   
-                    id: '1',
-                    type: 'mobile',
-                    name: 'Nokia',
-                    model: '3310',
-                    price: 10000
-                },{
-                    id: '2',
-                    type: 'watch',
-                    name: 'Fossil',
-                    model: 'gen 2',
-                    price: 200000
-                },{
-                    id: '3',
-                    type: 'laptop',
-                    name: 'Lenovo',
-                    model: 'T360',
-                    price: 5000000
-                }
-            ]
+            productToEdit: undefined
         }
         this.handleProductRemove = this.handleProductRemove.bind(this);
         this.handleRemoveAllProducts = this.handleRemoveAllProducts.bind(this);
@@ -66,8 +45,6 @@ class ShoppingApp extends React.Component {
             products: updatedProducts,
             productToEdit: undefined
         }));
-       
-        
     }
     handleAddProduct(product) {
         product.id = this.state.products.length + 1;
@@ -76,7 +53,7 @@ class ShoppingApp extends React.Component {
     render() {
         return (
             <div>
-                <Products products={this.state.products} handleProductEdit={this.handleProductEdit} handleUpdateProduct={this.handleUpdateProduct} productToEdit={this.state.productToEdit} handleProductRemove={this.handleProductRemove} handleRemoveAllProducts={this.handleRemoveAllProducts} />
+                <Products handleProductEdit={this.handleProductEdit} handleUpdateProduct={this.handleUpdateProduct} productToEdit={this.state.productToEdit} handleProductRemove={this.handleProductRemove} handleRemoveAllProducts={this.handleRemoveAllProducts} />
                 <ProductForm handleAddProduct={this.handleAddProduct}/>
             </div>
         )
