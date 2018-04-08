@@ -1,4 +1,6 @@
 import React from 'react';
+import { addProduct } from '../actions/products';
+import { connect } from 'react-redux';
 
 class ProductForm extends React.Component {
     constructor(props) {
@@ -42,7 +44,7 @@ class ProductForm extends React.Component {
         if (this.props.productToEdit) {
             this.props.handleUpdateProduct(updateObj);
         } else {
-            this.props.handleAddProduct(updateObj);
+            this.props.addProduct(updateObj);
         }
     }
     render() {
@@ -60,4 +62,10 @@ class ProductForm extends React.Component {
     }
 }
 
-export default ProductForm;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addProduct: (product) => dispatch(addProduct(product))
+    }
+};
+
+export default connect(undefined, mapDispatchToProps)(ProductForm);
