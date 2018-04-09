@@ -42,7 +42,7 @@ class ProductForm extends React.Component {
             price: this.state.price
         }
         if (this.props.productToEdit) {
-            this.props.handleUpdateProduct(updateObj);
+            this.props.onSubmit(this.props.productToEdit.id, updateObj);
         } else {
             this.props.addProduct(updateObj);
         }

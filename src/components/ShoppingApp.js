@@ -8,12 +8,8 @@ class ShoppingApp extends React.Component {
         this.state = {
             productToEdit: undefined
         }
-        this.handleRemoveAllProducts = this.handleRemoveAllProducts.bind(this);
         this.handleUpdateProduct = this.handleUpdateProduct.bind(this);
         this.handleProductEdit = this.handleProductEdit.bind(this);
-    }
-    handleRemoveAllProducts() {
-        this.setState( () => ({ products: [] }));
     }
     handleProductEdit(product) {
         this.setState( () => ({ productToEdit: product}));
@@ -21,13 +17,13 @@ class ShoppingApp extends React.Component {
     handleUpdateProduct(product) {
         const productId = this.state.productToEdit.id;
         const updatedProducts = this.state.products.map((item) => {
-            if (item.id === productId) {
+            if (item.id === action.id) {
                 return {
                     id: productId,
-                    type: product.type,
-                    name: product.name,
-                    model: product.model,
-                    price: product.price
+                    type: action.updateObj.type,
+                    name: action.updateObj.name,
+                    model: action.updateObj.model,
+                    price: action.updateObj.price
                 }
             } else {
                 return item;
@@ -41,7 +37,7 @@ class ShoppingApp extends React.Component {
     render() {
         return (
             <div>
-                <Products handleProductEdit={this.handleProductEdit} handleUpdateProduct={this.handleUpdateProduct} productToEdit={this.state.productToEdit} handleRemoveAllProducts={this.handleRemoveAllProducts} />
+                <Products handleProductEdit={this.handleProductEdit} handleUpdateProduct={this.handleUpdateProduct} productToEdit={this.state.productToEdit} />
                 <ProductForm/>
             </div>
         )

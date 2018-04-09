@@ -5,6 +5,10 @@ export const removeProduct = ({id} = {}) => ({
     id: id
 });
 
+export const removeAllProducts = () => ({
+    type: 'REMOVE_ALL_PRODUCTS',
+});
+
 export const addProduct = ({type = "", name = "", model = "", price = ""} = {}) => ({
     type: 'ADD_PRODUCT',
     product: {
@@ -14,4 +18,10 @@ export const addProduct = ({type = "", name = "", model = "", price = ""} = {}) 
         model: model,
         price: price
     }
+});
+
+export const editProduct = (id, updateObj) => ({
+    type: 'EDIT_PRODUCT',
+    id: id,
+    updateObj: updateObj
 });
