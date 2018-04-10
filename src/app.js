@@ -4,45 +4,9 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import AppRouter from './routers/AppRouter';
 import { addProduct } from './actions/products';
+import productsReducer from './reducers/products';
 
-const store = createStore((state = {products: []}, action) => {
-    switch (action.type) {
-        case 'ADD_PRODUCT':
-            return {
-                products: [...state.products, action.product]
-            }
-        case 'REMOVE_PRODUCT':
-            const products = state.products.filter(({id}) => {
-                return id !== action.id;
-            });
-            return {
-                products: products
-            }
-        case 'REMOVE_ALL_PRODUCTS':
-            return {
-                products: []
-            }
-        case 'EDIT_PRODUCT':
-            const updatedProducts = state.products.map((item) => {
-                if (item.id === action.id) {
-                    return {
-                        id: action.id,
-                        type: action.updateObj.type,
-                        name: action.updateObj.name,
-                        model: action.updateObj.model,
-                        price: action.updateObj.price
-                    }
-                } else {
-                    return item;
-                }
-            });
-            return {
-                products: updatedProducts
-            }
-        default:
-            return state;
-    }
-});
+const store = createStore(productsReducer);
 
 // Log the initial state
 console.log(store.getState())

@@ -35,7 +35,7 @@ class Product extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeProduct: (id) => dispatch(removeProduct({id}))
+        removeProduct: (id) => dispatch(removeProduct(id))
     }
 }
     
