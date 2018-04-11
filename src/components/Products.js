@@ -9,8 +9,7 @@ class Products extends React.Component {
             <div>
                 <button onClick={(e) => this.props.removeAllProducts()}>Remove All</button>
                 {
-                    this.props.products.map((product) => <Product key={product.id} product={product} handleUpdateProduct={this.props.handleUpdateProduct}
-                    productToEdit={this.props.productToEdit} handleProductEdit={this.props.handleProductEdit} />)
+                    this.props.products.map((product) => <Product key={product.id} product={product} />)
                 }
             </div>
         );
@@ -21,11 +20,12 @@ const mapStateToProps = (state) => {
     return {
         products: state.products
     }
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
         removeAllProducts: () => dispatch(removeAllProducts())
     }
-};
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

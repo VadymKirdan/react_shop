@@ -1,12 +1,31 @@
 import React from 'react';
 import ProductForm from './ProductForm';
+import { connect } from 'react-redux';
+import { addProduct } from '../actions/products';
 
 class AddProductPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+    onSubmit(product) {
+        this.props.addProduct(product);
+        this.props.history.push('/');
+    }
     render() {
         return (
-            <div>Create Product Page</div>
+            <div>
+                <h1>Create Product Page</h1>
+                <ProductForm onSubmit={this.onSubmit}/>
+            </div>
         )
     }
 }
 
-export default AddProductPage;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addProduct: (product) => dispatch(addProduct(product))
+    }
+}
+
+export default connect(undefined, mapDispatchToProps)(AddProductPage);

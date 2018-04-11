@@ -7,24 +7,24 @@ class EditProductPage extends React.Component {
     constructor(props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
-    };
-    onSubmit(id, updateObj) {
-        this.props.editProduct(id, updateObj)
+    }
+    onSubmit(updateObj) {
+        this.props.editProduct(this.props.product.id, updateObj);
         this.props.history.push('/');
-    };
+    }
     render(props) {
         return (
             <div>
                 Product to Edit: {this.props.match.params.id}
-                <ProductForm productToEdit={this.props.productToEdit} onSubmit={this.onSubmit}/>
+                <ProductForm product={this.props.product} onSubmit={this.onSubmit} />
             </div>
         )
-    };
+    }
 }
 
 const mapStateToProps = (state, props) => {
     return {
-        productToEdit: state.products.find((product) => {
+        product: state.products.find((product) => {
             return product.id === props.match.params.id
         })
     }
