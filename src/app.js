@@ -5,6 +5,8 @@ import { createStore } from 'redux'
 import AppRouter from './routers/AppRouter';
 import { addProduct } from './actions/products';
 import productsReducer from './reducers/products';
+import 'normalize.css/normalize.css'; // css reset library
+import './styles/style.scss';
 
 const store = createStore(productsReducer);
 
