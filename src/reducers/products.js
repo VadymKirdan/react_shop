@@ -1,23 +1,14 @@
-const productsDefaultState = {products:[]};
+const productsDefaultState = [];
 const productsReducer = (state = productsDefaultState, action) => {
     switch (action.type) {
         case 'ADD_PRODUCT':
-            return {
-                products: [...state.products, action.product]
-            }
+            return [...state, action.product];
         case 'REMOVE_PRODUCT':
-            const products = state.products.filter((product) => {
+            return state.filter((product) => {
                 return product.id !== action.id;
             });
-            return {
-                products
-            }
-        case 'REMOVE_ALL_PRODUCTS':
-            return {
-                products: []
-            }
         case 'EDIT_PRODUCT':
-            const updatedProducts = state.products.map((item) => {
+            return state.map((item) => {
                 if (item.id === action.id) {
                     return {
                         id: action.id,
@@ -30,9 +21,6 @@ const productsReducer = (state = productsDefaultState, action) => {
                     return item;
                 }
             });
-            return {
-                products: updatedProducts
-            }
         default:
             return state;
     }

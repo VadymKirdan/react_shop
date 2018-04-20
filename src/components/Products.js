@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Product from './Product';
-import { removeAllProducts } from '../actions/products';
 
 class Products extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={(e) => this.props.removeAllProducts()}>Remove All</button>
-                {
-                    this.props.products.map((product) => <Product key={product.id} product={product} />)
-                }
+                {this.props.products.map((product) => <Product key={product.id} product={product} />)}
             </div>
         );
     }
@@ -22,10 +18,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removeAllProducts: () => dispatch(removeAllProducts())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps)(Products);

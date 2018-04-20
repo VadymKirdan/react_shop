@@ -8,11 +8,6 @@ test('should setup remove product action object', () => {
     });
 });
 
-test('should setup remove all products action object', () => {
-    const action = removeAllProducts();
-    expect(action).toEqual({type: 'REMOVE_ALL_PRODUCTS'});
-});
-
 test('should setup edit product action object', () => {
     const updateObj = {
         name: 'samsung',
