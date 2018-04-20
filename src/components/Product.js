@@ -2,14 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeProduct } from '../actions/products';
+import { addToCart } from '../actions/cart';
 
 class Product extends React.Component {
     constructor(props) {
         super(props);
         this.handleRemoveProduct = this.handleRemoveProduct.bind(this);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
     }
     handleRemoveProduct() {
         this.props.removeProduct(this.props.product.id);
+    }
+    handleAddToCart() {
+        this.props.addToCart(this.props.product);
     }
     render(props) {
         return (
@@ -29,6 +34,7 @@ class Product extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        addToCart: (product) => dispatch(addToCart(product)),
         removeProduct: (id) => dispatch(removeProduct(id))
     }
 }

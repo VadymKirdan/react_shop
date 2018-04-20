@@ -8,6 +8,7 @@ class Header extends React.Component {
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/help'>Help</NavLink>
                 <NavLink to='/create'>Create</NavLink>
+                <NavLink to='/cart'>Cart</NavLink>
             </header>
         )
     }

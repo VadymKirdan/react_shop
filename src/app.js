@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import AppRouter from './routers/AppRouter';
 import { addProduct } from './actions/products';
 import productsReducer from './reducers/products';
+import cartReducer from './reducers/cart';
 
-const store = createStore(productsReducer);
+const store = createStore(
+    combineReducers({
+        products: productsReducer,
+        cart: cartReducer
+    }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // Log the initial state
 console.log(store.getState())
@@ -17,15 +24,6 @@ const unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 )
  
-// Dispatch some actions
-
-store.dispatch(addProduct({
-    type: 'mobile',
-    name: 'Nokia',
-    model: '3310',
-    price: 10000
-}));
-
 // Stop listening to state updates
 unsubscribe()
 
@@ -33,6 +31,14 @@ const app = (
     <Provider store={store}>
         <AppRouter />
     </Provider>
-)
+);
+
+// Dispatch some actions
+store.dispatch(addProduct({
+    type: 'mobile',
+    name: 'Nokia',
+    model: '3310',
+    price: 10000
+}));
 
 ReactDOM.render(app, document.getElementById('app'));
