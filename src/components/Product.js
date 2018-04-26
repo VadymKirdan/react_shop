@@ -14,19 +14,14 @@ class Product extends React.Component {
     }
     render(props) {
         return (
-            <Col xs={6} md={3}>
-                <Thumbnail>
+            <Col xs={6} md={2}>
+                <Thumbnail alt="Nokia 3310" src="images/nokia.png">
                     <h3>{this.props.product.name} {this.props.product.model}</h3>
-                    <p>
-                        <ol>
-                            <li>{this.props.product.type}</li>
-                            <li>{this.props.product.price}</li>
-                        </ol>
-                    </p>
+                    <h5>Price: {this.props.product.price}$</h5>
                     <p>
                         <Button onClick={this.handleRemoveProduct} bsStyle="primary">Remove Product</Button>
-                        <Button onClick={this.handleAddToCart} bsStyle="primary">Buy</Button>
-                        <Link to={`/edit/${this.props.product.id}`}><h3>Edit Product</h3></Link>
+                        <Button onClick={this.handleAddToCart} bsStyle="primary" className="product-buy-button">Buy</Button>
+                        {/*<Link to={`/edit/${this.props.product.id}`}><h3>Edit Product</h3></Link>*/}
                     </p>
                 </Thumbnail>
             </Col>

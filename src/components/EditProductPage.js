@@ -15,7 +15,7 @@ class EditProductPage extends React.Component {
     render(props) {
         return (
             <div>
-                Product to Edit: {this.props.match.params.id}
+                <h1 className="product-form-label">Edit Product Form</h1>
                 <ProductForm product={this.props.product} onSubmit={this.onSubmit} />
             </div>
         )

@@ -15,7 +15,7 @@ class AddProductPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Create Product Page</h1>
+                <h1 className="product-form-label">Create Product Form</h1>
                 <ProductForm onSubmit={this.onSubmit}/>
             </div>
         )
