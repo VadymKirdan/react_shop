@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeProduct } from '../actions/products';
-import { addToCart } from '../actions/cart';
+import { Thumbnail, Button, Col } from 'react-bootstrap';
 
 class Product extends React.Component {
     constructor(props) {
@@ -18,16 +18,17 @@ class Product extends React.Component {
     }
     render(props) {
         return (
-            <div>
-                <ol>
-                    <li>{this.props.product.type}</li>
-                    <li>{this.props.product.model}</li>
-                    <li>{this.props.product.name}</li>
-                    <li>{this.props.product.price}</li>
-                </ol>
-                <button onClick={this.handleRemoveProduct}>Remove Product</button>
-                <Link to={`/edit/${this.props.product.id}`}><h3>Edit Product</h3></Link>
-            </div>
+            <Col xs={6} md={2}>
+                <Thumbnail alt="Nokia 3310" src="images/nokia.png">
+                    <h3>{this.props.product.name} {this.props.product.model}</h3>
+                    <h5>Price: {this.props.product.price}$</h5>
+                    <p>
+                        <Button onClick={this.handleRemoveProduct} bsStyle="primary">Remove Product</Button>
+                        <Button onClick={this.handleAddToCart} bsStyle="primary" className="product-buy-button">Buy</Button>
+                        {/*<Link to={`/edit/${this.props.product.id}`}><h3>Edit Product</h3></Link>*/}
+                    </p>
+                </Thumbnail>
+            </Col>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Form, FormGroup, FormControl, Col, ControlLabel, Button } from 'react-bootstrap';
 
 export default class ProductForm extends React.Component {
     constructor(props) {
@@ -42,15 +43,45 @@ export default class ProductForm extends React.Component {
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.onFormSubmit}>
-                    Type:  <input type="text" onChange={this.onTypeChange}  value={this.state.type}  /><br />
-                    Name:  <input type="text" onChange={this.onNameChange}  value={this.state.name}  /><br />
-                    Model: <input type="text" onChange={this.onModelChange} value={this.state.model} /><br />
-                    Price: <input type="text" onChange={this.onPriceChange} value={this.state.price} /><br />
-                    <button>{this.props.product ? "Update Product" : "Add Product"}</button>
-                </form>
-            </div>
+            <Form onSubmit={this.onFormSubmit} horizontal>
+                <FormGroup controlId="formHorizontalType">
+                    <Col componentClass={ControlLabel} sm={2}>
+                        Type
+                    </Col>
+                    <Col sm={3}>
+                        <FormControl type="text" placeholder="Type" onChange={this.onTypeChange}  value={this.state.type} />
+                    </Col>
+                </FormGroup>
+                <FormGroup controlId="formHorizontalName">
+                    <Col componentClass={ControlLabel} sm={2}>
+                        Name
+                    </Col>
+                    <Col sm={3}>
+                        <FormControl type="text" placeholder="Name" onChange={this.onNameChange}  value={this.state.name} />
+                    </Col>
+                </FormGroup>
+                <FormGroup controlId="formHorizontalModel">
+                    <Col componentClass={ControlLabel} sm={2}>
+                        Model
+                    </Col>
+                    <Col sm={3}>
+                        <FormControl type="text" placeholder="Model" onChange={this.onModelChange}  value={this.state.model} />
+                    </Col>
+                </FormGroup>
+                <FormGroup controlId="formHorizontalPrice">
+                    <Col componentClass={ControlLabel} sm={2}>
+                        Price
+                    </Col>
+                    <Col sm={3}>
+                        <FormControl type="text" placeholder="Price" onChange={this.onPriceChange}  value={this.state.price} />
+                    </Col>
+                </FormGroup>
+                <FormGroup>
+                    <Col smOffset={2} sm={3}>
+                        <Button type="submit">{this.props.product ? "Update Product" : "Add Product"}</Button>
+                    </Col>
+              </FormGroup>
+            </Form>
         )
     }
 }
