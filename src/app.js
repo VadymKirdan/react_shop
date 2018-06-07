@@ -8,6 +8,7 @@ import productsReducer from './reducers/products';
 import cartReducer from './reducers/cart';
 import 'normalize.css/normalize.css'; // css reset library
 import './styles/style.scss';
+import './firebase/firebase';
 
 const store = createStore(
     combineReducers({
