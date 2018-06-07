@@ -5,6 +5,7 @@ import { createStore, combineReducers } from 'redux'
 import AppRouter from './routers/AppRouter';
 import { addProduct } from './actions/products';
 import productsReducer from './reducers/products';
+import cartReducer from './reducers/cart';
 import 'normalize.css/normalize.css'; // css reset library
 import './styles/style.scss';
 
@@ -40,6 +41,13 @@ store.dispatch(addProduct({
     name: 'Nokia',
     model: '3310',
     price: 10000
+}));
+
+store.dispatch(addProduct({
+    type: 'mobile',
+    name: 'LG',
+    model: 'A8',
+    price: 15000
 }));
 
 ReactDOM.render(app, document.getElementById('app'));

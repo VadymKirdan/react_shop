@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Nav } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 class Header extends React.Component {
@@ -23,6 +23,11 @@ class Header extends React.Component {
                             <NavLink to='/create'>Create</NavLink>
                         </NavItem>
                     </Nav>
+                    <Nav pullRight>
+                        <NavItem>
+                            <NavLink to='/cart'>Cart</NavLink>
+                        </NavItem>
+                	</Nav>
                  </Navbar>
             </header>
         )

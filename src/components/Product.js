@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeProduct } from '../actions/products';
 import { Thumbnail, Button, Col } from 'react-bootstrap';
+import { addToCart} from '../actions/cart';
 
 class Product extends React.Component {
     constructor(props) {
