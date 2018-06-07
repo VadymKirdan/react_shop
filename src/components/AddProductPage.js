@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductForm from './ProductForm';
 import { connect } from 'react-redux';
-import { addProduct } from '../actions/products';
+import { startAddProduct } from '../actions/products';
 
 class AddProductPage extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class AddProductPage extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     onSubmit(product) {
-        this.props.addProduct(product);
+        this.props.startAddProduct(product);
         this.props.history.push('/');
     }
     render() {
@@ -24,7 +24,7 @@ class AddProductPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addProduct: (product) => dispatch(addProduct(product))
+        startAddProduct: (product) => dispatch(startAddProduct(product))
     }
 }
 

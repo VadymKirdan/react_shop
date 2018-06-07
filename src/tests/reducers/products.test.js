@@ -64,3 +64,12 @@ test('should not edit product in store if it doesn\'t exist', () => {
     const state = productsReducer(products, action);
     expect(state).toEqual(products);
 });
+
+test('should set products', () => {
+    const action = {
+        type: 'SET_PRODUCTS',
+        products
+    }
+    const state = productsReducer([products[0], products[2]], action);
+    expect(state).toEqual(products);
+});

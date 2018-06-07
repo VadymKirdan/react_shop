@@ -1,4 +1,5 @@
-import {addProduct, editProduct, removeProduct, removeAllProducts} from '../../actions/products';
+import {addProduct, editProduct, removeProduct, setProducts} from '../../actions/products';
+import products from '../fixtures/products';
 
 test('should setup remove product action object', () => {
     const action = removeProduct('1');
@@ -21,7 +22,7 @@ test('should setup edit product action object', () => {
     });
 });
 
-test('should setup add product action object with provided values', () => {
+/*test('should setup add product action object with provided values', () => {
     const action = addProduct({
         type: 'mobile',
         name: 'Nokia',
@@ -38,9 +39,9 @@ test('should setup add product action object with provided values', () => {
             price: 10000
         }
     });
-});
+});*/
 
-test('should setup add product action object with default values', () => {
+/*test('should setup add product action object with default values', () => {
     const action = addProduct({});
     expect(action).toEqual({
         type: 'ADD_PRODUCT',
@@ -51,5 +52,13 @@ test('should setup add product action object with default values', () => {
             model: '',
             price: 0
         }
+    });
+});*/
+
+test('should setup set products action object with data', () => {
+    const action = setProducts(products);
+    expect(action).toEqual({
+        type: 'SET_PRODUCTS',
+        products
     });
 });

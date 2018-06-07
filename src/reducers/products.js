@@ -3,6 +3,8 @@ const productsReducer = (state = productsDefaultState, action) => {
     switch (action.type) {
         case 'ADD_PRODUCT':
             return [...state, action.product];
+        case 'SET_PRODUCTS':
+            return action.products;
         case 'REMOVE_PRODUCT':
             return state.filter((product) => {
                 return product.id !== action.id;
