@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 export const removeProduct = (id) => ({
@@ -6,32 +5,19 @@ export const removeProduct = (id) => ({
     id
 });
 
-/*export const addProduct = ({type = "", name = "", model = "", price = 0} = {}) => ({
-    type: 'ADD_PRODUCT',
-    product: {
-        id: uuid(),
-        type,
-        name,
-        model,
-        price
     }
-});*/
 
 export const addProduct = (product) => ({
     type: 'ADD_PRODUCT',
     product
 });
 
-export const startAddProduct = (product) => {
+export const startAddProduct = ({type = "", name = "", model = "", price = 0} = {}) => {
     return (dispatch) => {
-        database.ref('products').push(product).then((ref) => {
-            dispatch(addProduct({
-                id: ref.key,
-                type: product.type,
-                name: product.name,
-                model: product.model,
-                price: product.price
-            }));
+        const product = {type, name, model, price};
+        return database.ref('products').push(product).then((ref) => {
+            product.id = ref.key
+            dispatch(addProduct(product));
         });
     };
 };
@@ -50,13 +36,12 @@ export const setProducts = (products) => ({
 export const startSetProducts = () => {
     return (dispatch) => {
         return database.ref('products').once('value').then((snapshot) => {
-            let products = [];
+            const products = [];
             snapshot.forEach((childSnapshot) => {
-                let item = childSnapshot.val();
-                item.id = childSnapshot.key;
+                const product = childSnapshot.val();
+                product.id = childSnapshot.key;
 
-                products.push(item);
-
+                products.push(product);
                 dispatch(setProducts(products));
             });
         });
