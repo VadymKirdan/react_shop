@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeProduct } from '../actions/products';
 import { Thumbnail, Button, Col } from 'react-bootstrap';
+import { startRemoveProduct } from '../actions/products';
 import { addToCart} from '../actions/cart';
 
 class Product extends React.Component {
@@ -12,7 +12,7 @@ class Product extends React.Component {
         this.handleAddToCart = this.handleAddToCart.bind(this);
     }
     handleRemoveProduct() {
-        this.props.removeProduct(this.props.product.id);
+        this.props.startRemoveProduct(this.props.product.id);
     }
     handleAddToCart() {
         this.props.addToCart(this.props.product);
@@ -37,7 +37,7 @@ class Product extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         addToCart: (product) => dispatch(addToCart(product)),
-        removeProduct: (id) => dispatch(removeProduct(id))
+        startRemoveProduct: (id) => dispatch(startRemoveProduct(id))
     }
 }
     

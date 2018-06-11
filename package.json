@@ -20,6 +20,7 @@
   "homepage": "https://github.com/VadymKirdan/react_shop#readme",
   "devDependencies": {
     "jest": "^22.4.3",
+    "redux-mock-store": "^1.5.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1"

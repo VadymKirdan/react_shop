@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductForm from './ProductForm';
 import { connect } from 'react-redux';
-import { editProduct } from '../actions/products';
+import { startEditProduct } from '../actions/products';
 
 class EditProductPage extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class EditProductPage extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     onSubmit(updateObj) {
-        this.props.editProduct(this.props.product.id, updateObj);
+        this.props.startEditProduct(this.props.product.id, updateObj);
         this.props.history.push('/');
     }
     render(props) {
@@ -32,7 +32,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editProduct: (id, updateObj) => dispatch(editProduct(id, updateObj))
+        startEditProduct: (id, updateObj) => dispatch(startEditProduct(id, updateObj))
     }
 }
 
