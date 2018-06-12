@@ -1,34 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 class Header extends React.Component {
     render() {
         return (
             <header>
-                <Navbar inverse>
-                    <Navbar.Header>
-                        <Navbar.Brand>
+                <div className="site-menu">
+                    <div className="menu-items">
+                        <div className="logo">
                             <a>React Shop</a>
-                        </Navbar.Brand>
-                    </Navbar.Header>
-                    <Nav>
-                        <NavItem>
-                            <NavLink to='/'>Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to='/help'>Help</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to='/create'>Create</NavLink>
-                        </NavItem>
-                    </Nav>
-                    <Nav pullRight>
-                        <NavItem>
+                        </div>
+                        <nav>
+                            <ul className="nav-list">
+                                <li className="nav-item"><NavLink to='/'>Home</NavLink></li>
+                                <li className="nav-item"><NavLink to='/help'>Help</NavLink></li>
+                                <li className="nav-item"><NavLink to='/create'>Create</NavLink></li>
+                            </ul>      
+                        </nav>
+                        <div className="actions">
                             <NavLink to='/cart'>Cart</NavLink>
-                        </NavItem>
-                	</Nav>
-                 </Navbar>
+                        </div>
+                    </div>
+                </div>
             </header>
         )
     }

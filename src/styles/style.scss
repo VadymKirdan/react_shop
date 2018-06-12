@@ -1,11 +1,2 @@
-.thumbnail img {
-    padding: 15px;
-}
-
-.product-form-label {
-    margin-left: 17%;
-}
-
-.product-buy-button {
-    float: right;
-}
+@import 'components/Header';
+@import 'components/ShoppingApp';
