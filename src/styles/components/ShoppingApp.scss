@@ -1,25 +1,27 @@
 .app {
     display: grid;
-    grid-template-areas: "sb mn mn mn mn";
+    grid-template-areas: "sb mn mn mn mn mn";
 }
 aside {
     grid-area: sb;
-    margin-left: 100px;
+    margin-left: 200px;
+    margin-top: 55px;
 }
 main > div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 50px;
-    grid-auto-rows: 300px;
+    grid-auto-rows: 350px;
     grid-gap: 20px;
 }
 main {
     grid-area: mn;
-    margin-right: 100px;
+    margin-right: 200px;
     padding-bottom: 50px;
 }
 .products-banner {
     grid-column: 1 / -1;
+    margin-left: 25px;
 }
 
 /* sticky footer - check for another solution */
@@ -30,4 +32,7 @@ body {
 
 html {
     height: 100%;
+    // fix shifting menu items on scroll show  
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
 }

@@ -1,0 +1,33 @@
+.product {
+    //border: 1px solid black;
+    padding: 0 30px;
+}
+
+.product .image-wrapper {
+    height: 180px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.image-wrapper img {
+    height: 100%;
+}
+.product-name {
+    line-height: 15px;
+}
+
+.product-price {
+    font: 700 18px/18px Ubuntu,sans-serif;
+    color: #f6690e;
+    margin-top: 26px;
+}
+
+.product > a {
+    display: block;
+    margin: 10px 0;
+    border-radius: 3px;
+    background-color: #7eb105;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+}

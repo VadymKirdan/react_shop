@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import ShoppingApp from '../components/ShoppingApp';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
@@ -20,6 +21,7 @@ const AppRouter = () => (
                 <Route path="/edit/:id" component={EditProductPage}/>
                 <Route component={NotFoundPage}/>
             </Switch>
+            <Footer />
         </div>
     </BrowserRouter>
 );
