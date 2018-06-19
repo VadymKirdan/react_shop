@@ -37,7 +37,7 @@ export default class ProductForm extends React.Component {
             type:  this.state.type,
             name:  this.state.name,
             model: this.state.model,
-            price: this.state.price
+            price: parseFloat(this.state.price, 10)
         });
     }
     render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Product from './Product';
+import getVisibleProducts from '../selectors/visibleProducts';
 
 const Products = (props) => {
     return (
@@ -13,8 +14,9 @@ const Products = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products
+        products: getVisibleProducts(state.products, state.filters.filterNames, state.filters.sortBy)
     }
 }
 
 export default connect(mapStateToProps)(Products);
+
