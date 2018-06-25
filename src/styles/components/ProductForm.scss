@@ -1,0 +1,38 @@
+.product-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form  > * {
+    margin-bottom: 16px;
+}
+
+.product-form-label {
+    font-weight: 300;
+    margin: 0px;
+}
+
+.form-input {
+    border: 1px solid #cacccd;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 12px;
+}
+
+.form-button {
+    background: #1c88bf;
+    border: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.form-errors p {
+    font-style: italic;
+    color: red;
+}

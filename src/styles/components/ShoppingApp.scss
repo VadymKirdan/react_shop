@@ -28,6 +28,9 @@ main {
 body {
     position: relative;
     min-height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 html {
@@ -35,4 +38,17 @@ html {
     // fix shifting menu items on scroll show  
     overflow-x: hidden;
     margin-right: calc(-1 * (100vw - 100%));
+}
+
+
+.page-title {
+    background: #f7f7f7;
+    margin-bottom: 32px;
+    padding: 32px 0;
+}
+
+.content-container {
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 800px;
 }
