@@ -24,5 +24,6 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
     historyApiFallback: true
-  }
+  },
+  mode: 'development'
 };

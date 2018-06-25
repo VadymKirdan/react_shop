@@ -24,8 +24,8 @@ class Product extends React.Component {
                 </div>
                 <h5 className="product-name">{this.props.product.name} {this.props.product.model}</h5>
                 <h5 className="product-price">{this.props.product.price}$</h5>
-                {/*<a onClick={this.handleRemoveProduct} bsStyle="primary">Remove Product</a>*/}
-                <a onClick={this.handleAddToCart} bsStyle="primary" className="product-buy-button">Add To Cart</a>
+                {/*<a onClick={this.handleRemoveProduct}>Remove Product</a>*/}
+                <a onClick={this.handleAddToCart} className="product-buy-button">Add To Cart</a>
                 {/*<Link to={`/edit/${this.props.product.id}`}><h3>Edit Product</h3></Link>*/}
             </div>
         )

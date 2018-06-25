@@ -20,9 +20,9 @@ class BrandSelector extends React.Component {
                 <legend>Select Brand</legend>
                 {this.props.productNames.map((name) => {
                     return (
-                        <div className="inputGroup">
+                        <div className="inputGroup" key={name}>
                             <input type="checkbox" id={name} value={name} defaultChecked={true} onChange={this.handleChange}/>
-                            <label for={name}>{name}</label>
+                            <label htmlFor={name}>{name}</label>
                         </div>
                     );
                 })}
