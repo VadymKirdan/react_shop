@@ -7,6 +7,7 @@ import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 import AddProductPage from '../components/AddProductPage';
 import EditProductPage from '../components/EditProductPage';
+import SingleProductPage from '../components/SingleProductPage';
 import ProductCart from '../components/ProductCart';
 
 const AppRouter = () => (
@@ -19,6 +20,7 @@ const AppRouter = () => (
                 <Route path="/create" component={AddProductPage}/>
                 <Route path="/cart" component={ProductCart}/>
                 <Route path="/edit/:id" component={EditProductPage}/>
+                <Route path="/products/:id" component={SingleProductPage}/>
                 <Route component={NotFoundPage}/>
             </Switch>
             <Footer />

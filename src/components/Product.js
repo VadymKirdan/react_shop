@@ -20,7 +20,9 @@ class Product extends React.Component {
         return (
             <div className="product">
                 <div className="image-wrapper">
-                    <img src="images/nokia.png" alt="Phone" />
+                    <Link to={`/products/${this.props.product.id}`}>
+                        <img src="images/nokia.png" alt="Phone" />
+                    </Link>
                 </div>
                 <h5 className="product-name">{this.props.product.name} {this.props.product.model}</h5>
                 <h5 className="product-price">{this.props.product.price}$</h5>

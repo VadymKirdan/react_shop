@@ -22,12 +22,16 @@
     margin-top: 26px;
 }
 
-.product > a {
+.product .product-buy-button {
     display: block;
     margin: 10px 0;
     border-radius: 3px;
-    background-color: #7eb105;
     text-align: center;
     line-height: 32px;
+    background: #1c88bf;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    text-decoration: none;
     cursor: pointer;
 }
